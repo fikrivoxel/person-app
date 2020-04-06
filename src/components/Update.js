@@ -58,6 +58,7 @@ class Update extends PureComponent {
       nama: this.state.nama,
       umur: this.state.umur
     })
+    this.props.personDis.removeData()
     this.setState({
       nama: '',
       umur: ''

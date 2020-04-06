@@ -13,6 +13,7 @@ const initState = {
 
 const addPersonList = function (state, payload) {
   let list = [...state.list]
+  if (list.length === 0) return state
   list.push(payload)
   return {
     ...state,
@@ -22,6 +23,7 @@ const addPersonList = function (state, payload) {
 const updatePersonList = function (state, payload) {
   let list = [...state.list]
   let idx = list.findIndex(st => st.id === payload.id)
+  if (idx === -1) return state
   list.splice(idx, 1, payload)
   return {
     ...state,
@@ -31,6 +33,7 @@ const updatePersonList = function (state, payload) {
 const removePersonList = function (state, payload) {
   let list = [...state.list]
   let idx = list.findIndex(st => st.id === payload.id)
+  if (idx === -1) return state
   list.splice(idx, 1)
   return {
     ...state,
